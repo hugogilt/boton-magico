@@ -8,11 +8,12 @@
     <title>Botón Mágico</title>
 </head>
 <body>
-<div id="boton">
-    <audio id="f" src="miaudio.mp3" controls=""></audio>
-    <button onclick="document.getElementById('f').play()"">
+    <audio id="myAudio" src="miaudio.mp3" controls=""></audio>
+    <button id="confettiButton" onclick="document.getElementById('myAudio').pylay()">
          <a href="#">Botón Mágico</a>
     </button> 
-</div>
+    <!-- Incluir la librería de confeti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+    <script src="confeti.js"></script>
 </body>
 </html>
