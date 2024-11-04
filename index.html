@@ -1,26 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="estilos.css" />
-    <meta property="og:title" content="Botón mágico" />
-    <meta property="og:description" content="Un misterioso botón que tal vez no deberías pulsar..." />
-    <meta property="og:image" content="./img/boton-rojo.png" />
-    <meta property="og:url" content="https://hugogilt.github.io/boton-magico" />
-    <meta property="og:type" content="website" />
-    <link rel="icon" href="img/boton-rojo.png" type="image/x-icon">
-
-    <title>Botón Mágico</title>
+    <title>Cálculo de Intereses</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="img/calculadora.png" type="image/x-icon">
 </head>
+
 <body>
-    <audio id="myAudio" src="miaudio.mp3" controls=""></audio>
-    <button id="confettiButton" onclick="document.getElementById('myAudio').play()">
-         <a href="#">Botón Mágico</a>
-    </button> 
-    <!-- Incluir la librería de confeti -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
-    <script src="confeti.js"></script>
+    <main>
+        <header>
+            <h1>Calculadora de Intereses Anual</h1> <hr>
+        </header>
+        <form id="formulario" onsubmit="event.preventDefault(); calcular();">
+            <label for="capital">Capital Inicial (€):</label>
+            <input type="number" id="capital" required>
+
+            <label for="interesTrade">Interés Anual Trade Republic (%):</label><img src="img/tr.png" alt="">
+            <input type="number" value="3.25" id="interesTrade" step="0.01" required>
+
+            <label for="interesRevolut">Interés Anual Revolut (%):</label><img src="img/revolut.png" alt="">
+            <input type="number" value="3.50" id="interesRevolut" step="0.01" required>
+
+            <label for="impuestos">Impuestos: </label>
+            <select id="impuestos" required>
+                <option value="Si">Sí</option>
+                <option value="No">No</option>
+            </select> <br>
+            <span id="comment"> (En revolut se aplican en cada pago, en trade republic al final)</span>
+
+            <br><br>
+
+
+            <button id="calcularButton" type="submit">Calcular</button>
+        </form>
+
+        <div id="resultado"></div>
+    </main>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
